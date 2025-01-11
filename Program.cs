@@ -1,5 +1,4 @@
-﻿using System;
-using System.Text.Json;
+﻿using System.Text.Json;
 using System.Text.RegularExpressions;
 
 namespace Scans;
@@ -16,7 +15,7 @@ public class Scan
 
 class Program
 {
-    private const string GithubURL = "https://github.com/dfgHiatus/Test/";
+    private const string GithubURL = "https://raw.githubusercontent.com/dfgHiatus/Scans/refs/heads/main/";
     private const string RootDirectory = @"F:\Scans\";
     private static readonly string ModelDirectory = Path.Combine(RootDirectory, "Models");
     private const string Index = "Index.json";
@@ -89,7 +88,7 @@ class Program
         }
 
         var existingScan = existingScans.FirstOrDefault(s => s.Path == objFilePath);
-        var relativePath = Path.GetRelativePath(ModelDirectory, objFilePath).Replace("\\", "/");
+        var relativePath = Path.GetRelativePath(RootDirectory, objFilePath).Replace("\\", "/");
         var path = $"{GithubURL}{relativePath}";
 
         if (existingScan != null)
