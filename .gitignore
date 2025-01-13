@@ -2,3 +2,5 @@
 /.vs
 /obj
 /bin
+*.meta
+*.DS_Store
